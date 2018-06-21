@@ -33,12 +33,12 @@ public class SubscriptionManagementServiceImpl implements SubscriptionManagement
                         return new AWSCredentials() {
                             @Override
                             public String getAWSAccessKeyId() {
-                                return "AKIAJ3ZQUIJVNUD7UKZA";
+                                return "";
                             }
 
                             @Override
                             public String getAWSSecretKey() {
-                                return "EKUBWJ4eDnWklcEkkv1HBDYXX7Uzt0hD3GDsMCy2";
+                                return "";
                             }
                         };
                     }
@@ -81,12 +81,12 @@ public class SubscriptionManagementServiceImpl implements SubscriptionManagement
                         return new AWSCredentials() {
                             @Override
                             public String getAWSAccessKeyId() {
-                                return "AKIAJ3ZQUIJVNUD7UKZA";
+                                return "";
                             }
 
                             @Override
                             public String getAWSSecretKey() {
-                                return "EKUBWJ4eDnWklcEkkv1HBDYXX7Uzt0hD3GDsMCy2";
+                                return "";
                             }
                         };
                     }
@@ -177,12 +177,12 @@ public class SubscriptionManagementServiceImpl implements SubscriptionManagement
                         return new AWSCredentials() {
                             @Override
                             public String getAWSAccessKeyId() {
-                                return "AKIAJ3ZQUIJVNUD7UKZA";
+                                return "";
                             }
 
                             @Override
                             public String getAWSSecretKey() {
-                                return "EKUBWJ4eDnWklcEkkv1HBDYXX7Uzt0hD3GDsMCy2";
+                                return "";
                             }
                         };
                     }
@@ -226,12 +226,12 @@ public class SubscriptionManagementServiceImpl implements SubscriptionManagement
                         return new AWSCredentials() {
                             @Override
                             public String getAWSAccessKeyId() {
-                                return "AKIAJ3ZQUIJVNUD7UKZA";
+                                return "";
                             }
 
                             @Override
                             public String getAWSSecretKey() {
-                                return "EKUBWJ4eDnWklcEkkv1HBDYXX7Uzt0hD3GDsMCy2";
+                                return "";
                             }
                         };
                     }
@@ -274,12 +274,12 @@ public class SubscriptionManagementServiceImpl implements SubscriptionManagement
                         return new AWSCredentials() {
                             @Override
                             public String getAWSAccessKeyId() {
-                                return "AKIAJ3ZQUIJVNUD7UKZA";
+                                return "";
                             }
 
                             @Override
                             public String getAWSSecretKey() {
-                                return "EKUBWJ4eDnWklcEkkv1HBDYXX7Uzt0hD3GDsMCy2";
+                                return "";
                             }
                         };
                     }

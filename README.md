@@ -1,7 +1,7 @@
 # Internship-Nice
 A Generic AI Based Chatbot Application for customer support management..
 
-# How to Chat with Telecom(Prebulid) Bot:
+# How to Chat with Telecom(Prebuild) Bot:
     step 1:Run webservice "webserviceExample" (on localhost with port 8080)
     step 2:Run webservice "subscriptionManagement"
     step 3:Run "Chatbotui/project/index.html" for chatting..

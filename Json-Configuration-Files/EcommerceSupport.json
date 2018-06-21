@@ -1,0 +1,72 @@
+{
+  "botname":"EcommerceSupport",
+  "intents":[
+    {
+      "intentname":"getecommerceproducts",
+      "utterences":["products available","want to know products","products","which products do you have"],
+      "fulfillment":{
+        "baseurl":"http://35.167.231.224:8082/EcommerceSupport/getallproducts",
+        "method":"GET",
+		"requestparameters":["categoryname"],
+        "requestbody":[]
+        
+      }
+      
+    },
+    {
+      "intentname":"getecommerceorders",
+      "utterences":["show orders","want to know order list","show all orders till now","my order history"],
+      "fulfillment":{
+        "baseurl":"http://35.167.231.224:8082/EcommerceSupport/getorders",
+        "method":"GET",
+		"requestparameters":["userid","password"],
+        "requestbody":[]
+        
+      }
+    },
+	{
+		"intentname":"ecommerceplaceorder",
+		"utterences":["i want to place an order","i want to buy","place order"],
+		"fulfillment":{
+		"baseurl":"http://35.167.231.224:8082/EcommerceSupport/placeorder",
+		"method":"POST",
+		"requestparameters":[],
+        "requestbody":[{"name":"userid","constraint":"required"},
+        {"name":"password","constraint":"required"},
+        {"name":"productid","constraint":"required"},
+        {"name":"amount","constraint":"required"}]
+		}
+	},
+	{
+      "intentname":"ecommerceupdateorders",
+      "utterences":["i want to update an order","i want to change order","update order"],
+      "fulfillment":{
+        "baseurl":"http://35.167.231.224:8082/EcommerceSupport/updateorder",
+        "method":"PUT",
+		"requestparameters":["orderid"],
+        "requestbody":[{"name":"userid","constraint":"required"},
+        {"name":"password","constraint":"required"},
+        {"name":"productid","constraint":"required"},
+        {"name":"amount","constraint":"required"}]
+        
+      }
+    },
+    {
+      "intentname":"ecommercedeleteorders",
+      "utterences":["i want to delete an order","i want to delete order","delete order","i want to cancel an order","i want to cancel order","cancel  order"],
+      "fulfillment":{
+        "baseurl":"http://35.167.231.224:8082/EcommerceSupport/deleteorder",
+        "method":"DELETE",
+		"requestparameters":["orderid"],
+        "requestbody":[{"name":"userid","constraint":"required"},
+        {"name":"password","constraint":"required"},
+        {"name":"productid","constraint":"optional"},
+        {"name":"amount","constraint":"optional"}]
+        
+      }
+    }
+    
+	
+    ]
+  
+}

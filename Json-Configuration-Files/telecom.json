@@ -1,0 +1,71 @@
+{
+  "botname":"Telecom",
+  "botinfo":"Hey You can ask me anything about your Telecom Queries.",
+  "intents":[
+    {
+      "intentname":"telecomschemes",
+	  "description":"Do You want to know all Schemes available right now",
+      "utterences":["schemes available","want to know all schemes","plans","which schemes do you have","schemes","offers","plans available"],
+      "fulfillment":{
+        "baseurl":"http://localhost:8081/subscriptionmanagement/allschemes",
+        "method":"GET",
+		"requestparameters":[],
+        "requestbody":[]
+        
+      }
+      
+    },
+    {
+      "intentname":"userschemes",
+	  "description":"Do You want to know about your subscriptions",
+      "utterences":["show my schemes","my plans","my schemes","plans activated","subscribed schemes","subscribed plans"],
+      "fulfillment":{
+        "baseurl":"http://localhost:8081/subscriptionmanagement/allschemes/userdetail",
+        "method":"GET",
+		"requestparameters":["mobno"],
+        "requestbody":[]
+        
+      }
+    },
+	{
+		"intentname":"schemeinfo",
+		"description":"Do You want to know about a Scheme",
+		"utterences":["schemedetail","i want to scheme info","scheme","plan detail"],
+		"fulfillment":{
+		"baseurl":"http://localhost:8081/subscriptionmanagement/scheme",
+		"method":"GET",
+		"requestparameters":["schemeid","element"],
+        "requestbody":[]
+		}
+	},
+	{
+      "intentname":"activatescheme",
+	  "description":"Do You want to activate Scheme right now",
+      "utterences":["i want to activate scheme","i want to subscribe plan","activate","subscribe"],
+      "fulfillment":{
+        "baseurl":"http://localhost:8081/subscriptionmanagement/activate",
+        "method":"POST",
+		"requestparameters":[],
+        "requestbody":[{"name":"mobno","constraint":"required"},
+        {"name":"schemeid","constraint":"required"}]
+        
+      }
+    },
+    {
+      "intentname":"deactivatescheme",
+	  "description":"Do you Want to deactivate Scheme",
+      "utterences":["i want to deactivate scheme","i want to unsubscribe plan","deactivate","unsubscribe"],
+      "fulfillment":{
+        "baseurl":"http://localhost:8081/subscriptionmanagement/deactivate",
+        "method":"DELETE",
+		"requestparameters":[],
+       "requestbody":[{"name":"mobno","constraint":"required"},
+        {"name":"schemeid","constraint":"required"}]
+        
+      }
+    }
+    
+	
+    ]
+  
+}

@@ -9,7 +9,7 @@ public class UserConfigureInput
     }
     public JsonDataHandler getJsonFileInput() throws Exception
     {
-        jsonDataHandler=new JsonDataHandler(new FileReader("D:\\telecom.json"));
+        jsonDataHandler=new JsonDataHandler(new FileReader("json file path"));
         return  jsonDataHandler;
     }
 }

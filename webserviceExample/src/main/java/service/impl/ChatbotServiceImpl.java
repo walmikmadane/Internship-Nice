@@ -52,12 +52,12 @@ public class ChatbotServiceImpl implements ChatbotService
                             return new AWSCredentials() {
                                 @Override
                                 public String getAWSAccessKeyId() {
-                                    return "AKIAJ3ZQUIJVNUD7UKZA";
+                                    return "";
                                 }
 
                                 @Override
                                 public String getAWSSecretKey() {
-                                    return "EKUBWJ4eDnWklcEkkv1HBDYXX7Uzt0hD3GDsMCy2";
+                                    return "";
                                 }
                             };
                         }
@@ -89,7 +89,7 @@ public class ChatbotServiceImpl implements ChatbotService
                 {
                     System.out.println("update training data set..");
                     //get last training utterence in neo4j....
-                    Driver driver = GraphDatabase.driver( "bolt://hobby-holocknhlicigbkeebkgcfal.dbs.graphenedb.com:24786", AuthTokens.basic( "walmik", "b.MB5SXqHTU7i3.ZDklj2e2aMQiIKF1" ) );
+                    Driver driver = GraphDatabase.driver( "bolt://hobby-holocknhlicigbkeebkgcfal.dbs.graphenedb.com:24786", AuthTokens.basic( "", "" ) );
 
                     Session session = driver.session();
 
@@ -125,12 +125,12 @@ public class ChatbotServiceImpl implements ChatbotService
                                     return new AWSCredentials() {
                                         @Override
                                         public String getAWSAccessKeyId() {
-                                            return "AKIAJ3ZQUIJVNUD7UKZA";
+                                            return "";
                                         }
 
                                         @Override
                                         public String getAWSSecretKey() {
-                                            return "EKUBWJ4eDnWklcEkkv1HBDYXX7Uzt0hD3GDsMCy2";
+                                            return "";
                                         }
                                     };
                                 }
@@ -151,12 +151,12 @@ public class ChatbotServiceImpl implements ChatbotService
                                     return new AWSCredentials() {
                                         @Override
                                         public String getAWSAccessKeyId() {
-                                            return "AKIAJ3ZQUIJVNUD7UKZA";
+                                            return "";
                                         }
 
                                         @Override
                                         public String getAWSSecretKey() {
-                                            return "EKUBWJ4eDnWklcEkkv1HBDYXX7Uzt0hD3GDsMCy2";
+                                            return "";
                                         }
                                     };
                                 }
@@ -189,7 +189,7 @@ public class ChatbotServiceImpl implements ChatbotService
                     }
 
                     //set last training utterence in neo4j....
-                    Driver driver = GraphDatabase.driver( "bolt://hobby-holocknhlicigbkeebkgcfal.dbs.graphenedb.com:24786", AuthTokens.basic( "walmik", "b.MB5SXqHTU7i3.ZDklj2e2aMQiIKF1" ) );
+                    Driver driver = GraphDatabase.driver( "bolt://hobby-holocknhlicigbkeebkgcfal.dbs.graphenedb.com:24786", AuthTokens.basic( "", "" ) );
 
                     Session session = driver.session();
 
@@ -235,7 +235,7 @@ public class ChatbotServiceImpl implements ChatbotService
 
     public static void updateTrainingDatasetInS3(String tmp2,String intentname)
     {
-        Driver driver = GraphDatabase.driver( "bolt://hobby-holocknhlicigbkeebkgcfal.dbs.graphenedb.com:24786", AuthTokens.basic( "walmik", "b.MB5SXqHTU7i3.ZDklj2e2aMQiIKF1" ) );
+        Driver driver = GraphDatabase.driver( "bolt://hobby-holocknhlicigbkeebkgcfal.dbs.graphenedb.com:24786", AuthTokens.basic( "", "" ) );
 
         Session session = driver.session();
 
@@ -262,7 +262,7 @@ public class ChatbotServiceImpl implements ChatbotService
         String intent=textResult.getIntentName();
         if(intent.equals("Botinfo")||intent.equals("irrelevant"))
         {
-            Driver driver = GraphDatabase.driver( "bolt://hobby-holocknhlicigbkeebkgcfal.dbs.graphenedb.com:24786", AuthTokens.basic( "walmik", "b.MB5SXqHTU7i3.ZDklj2e2aMQiIKF1" ) );
+            Driver driver = GraphDatabase.driver( "bolt://hobby-holocknhlicigbkeebkgcfal.dbs.graphenedb.com:24786", AuthTokens.basic( "", "" ) );
 
             Session session = driver.session();
 
@@ -280,12 +280,12 @@ public class ChatbotServiceImpl implements ChatbotService
                     return new AWSCredentials() {
                         @Override
                         public String getAWSAccessKeyId() {
-                            return "AKIAJ3ZQUIJVNUD7UKZA";
+                            return "";
                         }
 
                         @Override
                         public String getAWSSecretKey() {
-                            return "EKUBWJ4eDnWklcEkkv1HBDYXX7Uzt0hD3GDsMCy2";
+                            return "";
                         }
                     };
                 }

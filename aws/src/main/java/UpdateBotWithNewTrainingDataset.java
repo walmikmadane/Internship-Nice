@@ -16,7 +16,7 @@ public class UpdateBotWithNewTrainingDataset
     public static void main(String[] args)
     {
 
-        Driver driver = GraphDatabase.driver( "bolt://hobby-holocknhlicigbkeebkgcfal.dbs.graphenedb.com:24786", AuthTokens.basic( "walmik", "b.MB5SXqHTU7i3.ZDklj2e2aMQiIKF1" ) );
+        Driver driver = GraphDatabase.driver( "bolt://hobby-holocknhlicigbkeebkgcfal.dbs.graphenedb.com:24786", AuthTokens.basic( "", "" ) );
 
         Session session = driver.session();
         String tmp="walmik";
@@ -28,12 +28,12 @@ public class UpdateBotWithNewTrainingDataset
                         return new AWSCredentials() {
                             @Override
                             public String getAWSAccessKeyId() {
-                                return "AKIAJ3ZQUIJVNUD7UKZA";
+                                return "";
                             }
 
                             @Override
                             public String getAWSSecretKey() {
-                                return "EKUBWJ4eDnWklcEkkv1HBDYXX7Uzt0hD3GDsMCy2";
+                                return "";
                             }
                         };
                     }

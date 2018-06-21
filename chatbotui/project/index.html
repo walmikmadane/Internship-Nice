@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.239.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="1.css">
+    <script type="">
+        var me = {};
+        me.avatar = "https://lh6.googleusercontent.com/-lr2nyjhhjXw/AAAAAAAAAAI/AAAAAAAARmE/MdtfUmC0M4s/photo.jpg?sz=48";
+        var you = {};
+        you.avatar = "https://a11.t26.net/taringa/avatares/9/1/2/F/7/8/Demon_King1/48x48_5C5.jpg";
+
+        function formatAMPM(date) 
+        {
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+             hours = hours % 12;
+             hours = hours ? hours : 12; // the hour '0' should be '12'
+             minutes = minutes < 10 ? '0'+minutes : minutes;
+            var strTime = hours + ':' + minutes + ' ' + ampm;
+            return strTime;
+        }   
+            
+        function insertChat(who, text, time)
+        {
+            if (time === undefined)
+            {
+                time = 0;
+            }
+             var control = "";
+            var date = formatAMPM(new Date());
+    
+            if (who == "me")
+            {
+                 control = '<li style="width:100%">' +
+                        '<div class="msj macro">' +
+                            '<div class="container darker">' +
+                                '<p style="width:60%">'+ text +'</p>' +
+                                '<p><small>'+date+'</small></p>' +
+                            '</div>' +
+                        '</div>' +
+                    '</li>';                    
+            }
+            else
+            {
+                control = '<li style="width:100%;">' +
+                        '<div class="msj-rta macro">' +
+                            '<div class="container darker">' +
+                                '<p style="width:60%;white-space: pre-line">'+text+'</p>' +
+                                '<p><small>'+date+'</small></p>' +
+                            '</div>' +                               
+                  '</li>';
+
+            }
+            setTimeout(
+                function()
+                {                        
+                    $("ul").append(control).scrollTop($("ul").prop('scrollHeight'));
+
+                }, time);
+    
+        }
+
+    </script>
+
+
+   
+
+
+</head>
+    <body style="padding: 100px">
+        <div class="col-sm-3 col-sm-offset-6 frame" >
+            <ul style="width: 100%"></ul>
+            <div>
+                <div class="msj-rta macro">                        
+                    <div class="text text-r" style="background:whitesmoke !important">
+                        <input id="myInput" class="mytext" placeholder="Type a message" />
+                    </div> 
+
+                </div>
+                <div style="padding:10px;">
+                    <span class="glyphicon glyphicon-share-alt"></span>
+                </div>                
+            </div>
+        </div>  
+
+
+        <script type="text/javascript">
+
+             var input = document.getElementById("myInput");
+             input.addEventListener("keyup", function(event) 
+                {
+                    event.preventDefault();
+                    if (event.keyCode === 13) 
+                    {
+                        getResponse(null,false);
+
+                    }
+                });
+
+
+            function selectIntent(btn)
+            {
+                console.log(btn.textContent);
+                var intent=btn.textContent;
+
+               // insertChat("me",intent,100);
+                getResponse(intent,true);
+
+            }
+
+             function getResponse(text2,learning)
+             {
+                var str2=text;
+                var str3="&botname=Telecom"
+                if(learning==false)
+                {
+                    var text=document.getElementById("myInput").value;
+                        document.getElementById("myInput").value="";
+                        insertChat("me",text,600);
+                        str2=text;
+                         str3="&botname=Telecom"
+                }
+                else
+                {
+                        insertChat("me",text2,600);
+                        str2=text2;
+                        str3="&botname=Telecom&learning=true"
+                }
+                
+                    
+
+                        //get response via webservice
+                        var data = null;
+                        var str1="http://localhost:8080/chatbotmanager/chatbot/startchat?msg=";
+                        
+                       // var str3="&botname=Telecom";
+
+                        var settings = 
+                        {
+                            "async": true,
+                            "crossDomain": true,
+                            "url": str1.concat(str2,str3),
+                             "method": "GET",
+                            "headers": 
+                            {
+                                    "content-type": "application/json",
+                                     "cache-control": "no-cache",
+                                    "postman-token": "339f0294-4e26-8c58-25a7-19da28dd3e8b"
+                             }
+                        }
+
+                        $.ajax(settings).done(function (response)
+                         {
+                             console.log(response);
+                            if(response.learning==true)
+                             {
+                                var intents=response.msg.split("&");
+                                var size=intents.length-1;
+                                var i=0;
+                                var msg='<div class="btn-group-vertical" id="group1" >'+"\n";
+                                while(i<size)
+                                {
+                                     var tmpintent=intents[i];
+                                     if(tmpintent!="irrelevant")
+                                    {
+                                         msg=msg+'<button onclick="selectIntent(this)">'+tmpintent+'</button>'+"\n";
+                  
+                                    }
+            
+                                     i++;
+                                }
+                                msg=msg+'<button onclick="selectIntent(this)">'+"None of Above.."+'</button>'+"\n"+'</div>';
+
+                                
+
+                                insertChat("you",msg,200);
+                             }
+                            else
+                            {
+                                 insertChat("you",response.msg,600);
+                            }
+  
+                        });
+             }
+
+        </script>  
+
+    </body>
+</html>
+
